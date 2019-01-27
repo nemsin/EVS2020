@@ -11,13 +11,16 @@ public class InventoryFiller : MonoBehaviour
     void Start()
     {
         this.gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
-        gameController = gameControllerObject.GetComponent<GameController>();
+        this.gameController = gameControllerObject.GetComponent<GameController>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < 5; i++)
+        {
+            imageList[i] = this.gameController.GetComponent<Image>();
+        }
     }
 }
