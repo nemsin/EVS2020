@@ -5,19 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class ItemTrigger : MonoBehaviour
 {
-    public ItemController instance;
-    public GameObject other;
+    public ItemController itemController;
+
+    private GameController gameController;
+    private GameObject gameControllerObject;
+
     bool destroy = false;
 
     private void Start()
     {
-        
+        this.gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        gameController = gameControllerObject.GetComponent<GameController>();
+
+        this.itemController = this.gameObject.GetComponentInParent<ItemController>();
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        instance.itemNumber--;
-        instance.collected++;
-        destroy = true;       
+        itemController.itemNumber--;
+        //itemController.collected++;
+        destroy = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -34,7 +41,19 @@ public class ItemTrigger : MonoBehaviour
     {
         if(destroy == true)
         {
-            Destroy(other);
+            if(gameController.Inventory.Count < 5)
+            {
+                GameObject instance = GameObject.Instantiate(gameObject);
+                instance.gameObject.SetActive(false);
+                gameController.Inventory.Add(instance);
+                DontDestroyOnLoad(instance);
+            }
+            else
+            {
+                Debug.Log("Zu viele Klopapiere!!!");
+            }
+
+            Destroy(this.gameObject);
         }
     }
 }
