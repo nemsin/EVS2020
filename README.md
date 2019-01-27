@@ -1,2 +1,4 @@
 # EVS2020
-die successor to EVS2019
+The successor to EVS2019
+
+To use, clone repo into your visual studio projects directory.
