@@ -6,9 +6,9 @@ public class InventoryFiller : MonoBehaviour
 {
     private GameController gameController;
     private GameObject gameControllerObject;
-    private static int inventorySize = 5;
+    private int inventorySize = 0;
     // Start is called before the first frame update
-    private Image[] imageList = new Image[inventorySize];
+    private List<Image> imageList = new List<Image>();
     void Start()
     {
         this.gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
@@ -19,9 +19,18 @@ public class InventoryFiller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = inventorySize; i <inventorySize; i++)
+        /*
+        if (inventorySize != this.gameController.Inventory.Count)
         {
-            imageList[i] = this.gameController.GetComponent<Image>();
+            inventorySize = this.gameController.Inventory.Count;
+
+            for (int i = 0; i < inventorySize; i++)
+            {
+                imageList.Add(this.gameController
+                    .Inventory[i]
+                    .GetComponent<Image>());
+            }
         }
+        */
     }
 }

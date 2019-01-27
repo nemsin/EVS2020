@@ -10,6 +10,8 @@ public class ItemTrigger : MonoBehaviour
     private GameController gameController;
     private GameObject gameControllerObject;
 
+    public float itemValue = 100;
+
     bool destroy = false;
 
     private void Start()
@@ -41,18 +43,7 @@ public class ItemTrigger : MonoBehaviour
     {
         if(destroy == true)
         {
-            if(gameController.Inventory.Count < 5)
-            {
-                GameObject instance = GameObject.Instantiate(gameObject);
-                instance.gameObject.SetActive(false);
-                gameController.Inventory.Add(instance);
-                DontDestroyOnLoad(instance);
-            }
-            else
-            {
-                Debug.Log("Zu viele Klopapiere!!!");
-            }
-
+            gameController.Money += itemValue;
             Destroy(this.gameObject);
         }
     }
