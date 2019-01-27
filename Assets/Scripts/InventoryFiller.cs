@@ -18,9 +18,6 @@ public class InventoryFiller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for ()
-        {
-
-        }
+        
     }
 }
