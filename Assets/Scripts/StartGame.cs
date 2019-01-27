@@ -12,7 +12,7 @@ public class StartGame : MonoBehaviour
     {
         DontDestroyOnLoad(Controller);
 
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
     }
 }
 

@@ -31,7 +31,7 @@ public class ItemController : MonoBehaviour
         timeText.text = "Time: " + timer;
         if (itemNumber == 0 || timer <= 0)
         {
-            SceneManager.LoadSceneAsync(0);
+            SceneManager.LoadSceneAsync(1);
         }
         
     }   
